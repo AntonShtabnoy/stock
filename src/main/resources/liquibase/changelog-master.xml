@@ -22,4 +22,89 @@
             <dropTable tableName="goods"/>
         </rollback>
     </changeSet>
+
+    <changeSet author="bogdanshishkin1998@gmail.com" id="addForeignKey-waybill_id">
+        <addForeignKeyConstraint baseColumnNames="waybill_id"
+                                 baseTableName="goods"
+                                 constraintName="fk_waybill_id"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="waybill"/>
+    </changeSet>
+
+    <changeSet id="createTable-waybill" author="bogdanshishkin1998@gmail.com">
+        <createTable tableName="waybill"> <!-- Товарно-транспортная накладная-->
+            <column type="varchar(20)" name="id">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column type="int" name="sender_id">
+                <constraints
+                        referencedTableName="sender"
+                        referencedColumnNames="id"
+                        deferrable="true"
+                        initiallyDeferred="true"
+                        uniqueConstraintName="fk_sender_id"
+                        />
+            </column>
+            <column name="carrier_id" type="int">
+                <constraints
+                        referencedTableName="carrier"
+                        referencedColumnNames="id"
+                        deferrable="true"
+                        initiallyDeferred="true"
+                        uniqueConstraintName="fk_carrier_id"
+                />
+            </column>
+            <column name="transport_id" type="int">
+                <constraints
+                        referencedTableName="transport"
+                        referencedColumnNames="id"
+                        deferrable="true"
+                        initiallyDeferred="true"
+                        uniqueConstraintName="fk_transport_id"
+                />
+            </column>
+            <column type="varchar(400)" name="additional_description">
+            </column>
+            <column name="storage_dispatcher_id" type="int">
+                <constraints
+                        referencedTableName="storage_dispatcher"
+                        referencedColumnNames="id"
+                        deferrable="true"
+                        initiallyDeferred="true"
+                        uniqueConstraintName="fk_storage_dispatcher_id"
+                />
+            </column>
+            <!-- поля:
+            sender_id INT NOT_NULL - айди отправителя товара
+            carrier_id INT NOT_NULL - айди перевозчика
+            transport_id INT NULL - айди транспортного средства
+            additional_description VARCHAR NULL
+            storage_dispatcher_id NOT_NULL
+
+            ?сумма товаров по ТТН?
+            ?количество наименований товаров по ТТН?
+            -->
+        </createTable>
+    </changeSet>
+    <changeSet id="createTable-sender" author="bogdanshishkin1998@gmail.com">
+        <createTable tableName="sender">
+        </createTable>
+    </changeSet>
+    <changeSet id="createTable-carrier" author="bogdanshishkin1998@gmail.com">
+        <createTable tableName="carrier">
+        </createTable>
+    </changeSet>
+    <changeSet id="createTable-storage_dispatcher" author="bogdanshishkin1998@gmail.com">
+        <createTable tableName="storage_dispatcher">
+            <!--
+                id INT PRIMARY KEY
+                transport_data VARCHAR NULL - инфо о транспортном(ых) средстве(ах)
+                driver_data VARCHAR NULL - инфо о водителе(только если тип транспорта - авто)
+            -->
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
