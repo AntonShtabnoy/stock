@@ -12,7 +12,7 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(40)"></column>
+            <column name="name" type="varchar(40)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
