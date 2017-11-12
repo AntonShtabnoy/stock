@@ -6,15 +6,15 @@
     <preConditions>
         <runningAs username="root"/>
     </preConditions>
+    <include file="classpath:liquibase/changelog/changelog-client.xml"/>
     <include file="classpath:liquibase/changelog/changelog-user.xml"/>
     <include file="classpath:liquibase/changelog/changelog-role.xml"/>
     <include file="classpath:liquibase/changelog/changelog-user_role.xml"/>
-    <include file="classpath:liquibase/changelog/changelog-client.xml"/>
-    <include file="classpath:liquibase/changelog/changelog-waybill.xml"/>
     <include file="classpath:liquibase/changelog/changelog-sender_recipient.xml"/>
     <include file="classpath:liquibase/changelog/changelog-carrier.xml"/>
-    <include file="classpath:liquibase/changelog/changelog-goods_waybill.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-waybill.xml"/>
     <include file="classpath:liquibase/changelog/changelog-goods.xml"/>
-    <include file="classpath:liquibase/changelog/changelog-write_off_goods.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-goods_waybill.xml"/>
     <include file="classpath:liquibase/changelog/changelog-write_off.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-write_off_goods.xml"/>
 </databaseChangeLog>

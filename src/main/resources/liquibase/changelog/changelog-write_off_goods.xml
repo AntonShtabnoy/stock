@@ -9,7 +9,7 @@
     <changeSet id="12.11.2017_22:48" author="yauhenmalchanau@gmail.com">
         <createTable tableName="write_off_goods">
             <column name="goods_id" type="bigint">
-                <constraints foreignKeyName="goods_id_fk" referencedTableName="goods" referencedColumnNames="id"/>
+                <constraints foreignKeyName="write_off_goods_id_fk" referencedTableName="goods" referencedColumnNames="id"/>
             </column>
             <column name="write_off_id" type="bigint">
                 <constraints foreignKeyName="write_off_id_fk" referencedTableName="write_off" referencedColumnNames="id"/>
@@ -17,7 +17,6 @@
             <column name="count" type="int"/>
             <column name="info" type="varchar(255)"/>
         </createTable>
-        <addPrimaryKey tableName="write_off_goods" columnNames="goods_id, write_off_id" constraintName="write_off_goods_pk"/>
     </changeSet>
     <changeSet id="12.11.2017_23:20" author="yauhenmalchanau@gmail.com">
         <addPrimaryKey tableName="write_off_goods" columnNames="goods_id, write_off_id" constraintName="write_off_goods_pk"/>
