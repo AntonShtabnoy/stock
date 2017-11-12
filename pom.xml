@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>warehouse</name>
-	<description>Group project of online warehouse</description>
+	<description>Group project of online stock</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -89,6 +89,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>
