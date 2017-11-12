@@ -8,6 +8,7 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <changeSet id="12.11.2017_20:09" author="bogdanshishkin1998@gmail.com">
+    <changeSet id="createTable_user" author="bogdanshishkin1998@gmail.com">
         <createTable tableName="user">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
