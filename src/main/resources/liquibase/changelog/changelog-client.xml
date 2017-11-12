@@ -6,11 +6,16 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
                    http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <changeSet id="createTable_user" author="bogdanshishkin1998@gmail.com">
-        <createTable tableName="user">
-            <column>
 
+    <changeSet id="12.11.2017_20:07" author="bogdanshishkin1998@gmail.com">
+        <createTable tableName="client">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="name" type="varchar(60)"/>
+            <column name="status" type="varchar(60)"/>
+            <column name="start_date" type="date"/>
+            <column name="finish_date" type="date"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
