@@ -5,5 +5,5 @@ package com.itechart.javalab.web.controllers;
  */
 public class Controller {
     //this class is just for demonstrating of package hierarchy because empty packages are invisible in git
-    //test dao-dev
+    //test dao-dev again and again
 }
