@@ -17,7 +17,7 @@
             <column name="passport_number" type="varchar(255)"/>
             <column name="passport_issue" type="varchar(255)"/>
             <column name="carrier_id" type="bigint">
-                <constraints foreignKeyName="carrier_id_fk" referencedTableName="carrier" referencedColumnNames="id"/>
+                <constraints foreignKeyName="driver_carrier_id_fk" referencedTableName="carrier" referencedColumnNames="id"/>
             </column>
         </createTable>
     </changeSet>

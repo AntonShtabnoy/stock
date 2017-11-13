@@ -12,7 +12,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="client_id" type="bigint">
-                <constraints foreignKeyName="client_id_fk" referencedTableName="client" referencedColumnNames="id"/>
+                <constraints foreignKeyName="storage_client_id_fk" referencedTableName="client" referencedColumnNames="id"/>
             </column>
             <column name="info" type="varchar(255)"/>
             <column name="country" type="varchar(255)"/>
