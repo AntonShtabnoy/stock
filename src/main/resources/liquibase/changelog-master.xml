@@ -17,7 +17,7 @@
     <include file="classpath:liquibase/changelog/changelog-goods_waybill.xml"/>
     <include file="classpath:liquibase/changelog/changelog-write_off.xml"/>
     <include file="classpath:liquibase/changelog/changelog-write_off_goods.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-storage.xml"/>
     <include file="classpath:liquibase/changelog/changelog-cell.xml"/>
     <include file="classpath:liquibase/changelog/changelog-driver.xml"/>
-    <include file="classpath:liquibase/changelog/changelog-storage.xml"/>
 </databaseChangeLog>
