@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Set;
 
 /**
  * Created by Yauhen Malchanau on 13.11.2017.
@@ -34,4 +35,8 @@ public class Goods {
     private Timestamp placementDatetime;
     @Column
     private Integer count;
+    @OneToMany(mappedBy = "goods", fetch = FetchType.LAZY)
+    private Set<GoodsWaybill> waybillGoodsCounts;
+    @OneToMany(mappedBy = "goods", fetch = FetchType.LAZY)
+    private Set<WriteOffGoods> writeOffGoodsCountsAndInfo;
 }

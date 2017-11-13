@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Set;
 
 /**
  * Created by Yauhen Malchanau on 14.11.2017.
@@ -34,4 +35,6 @@ public class WriteOff {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "responsible_carrier_id")
     private Carrier responsibleCarrier;
+    @OneToMany(mappedBy = "goods", fetch = FetchType.LAZY)
+    private Set<WriteOffGoods> writeOffGoodsCountsAndInfo;
 }
