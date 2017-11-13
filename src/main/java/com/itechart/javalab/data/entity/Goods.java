@@ -16,28 +16,20 @@ public class Goods {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column
     private String name;
-
     @Column
     private String storageMethod;
-
     @Column
     private Integer storageDuration;
-
     @Column
     private Integer cost;
-
     @Column
     private Double weight;
-
     @Column
     private String status;
-
     @Column
     private Timestamp placementDatetime;
-
     @Column
     private Integer count;
 }
