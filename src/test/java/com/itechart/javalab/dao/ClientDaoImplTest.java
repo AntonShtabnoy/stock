@@ -24,7 +24,7 @@ public class ClientDaoImplTest {
     public void shouldSaveClient(){
         Client client = new Client();
         client.setName("OOO \"Vasiliy Denisovich\"");
-        client.setStatus("Active");
+        client.setStatus("disabled");
         client.setStartDate(new Date(new java.util.Date().getTime()));
         clientDaoImpl.save(client);
     }
