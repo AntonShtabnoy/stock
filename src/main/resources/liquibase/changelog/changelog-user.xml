@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="12.11.2017_20:09" author="bogdanshishkin1998@gmail.com">
+        <createTable tableName="user">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="email" type="varchar(255)"/>
+            <column name="first_name" type="varchar(255)"/>
+            <column name="last_name" type="varchar(255)"/>
+            <column name="middle_name" type="varchar(255)"/>
+            <column name="dob" type="date"/>
+            <column name="login" type="varchar(255)"/>
+            <column name="password" type="varchar(255)"/>
+            <column name="client_id" type="bigint">
+                <constraints
+                        referencedTableName="client"
+                        referencedColumnNames="id"
+                        foreignKeyName="client_id_fk"/>
+            </column>
+            <column name="country" type="varchar(255)"/>
+            <column name="city" type="varchar(255)"/>
+            <column name="street" type="varchar(255)"/>
+            <column name="house_number" type="varchar(255)"/>
+            <column name="flat_number" type="varchar(255)"/>
+            <column name="is_deleted" type="bit"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -1,9 +1,9 @@
-package com.itechart.javalab.web.controllers;
+package com.itechart.javalab.web.filter;
 
 /**
  * Created by Yauhen Malchanau on 10.11.2017.
  */
-public class Controller {
+public class Filter {
     //this class is just for demonstrating of package hierarchy because empty packages are invisible in git
-    //test dao-dev again and again
+    //merge testing with pull request
 }

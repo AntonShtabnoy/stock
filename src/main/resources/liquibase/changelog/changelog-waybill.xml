@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="12.11.2017_21:03" author="www.pavlovsky@gmail.com">
+        <createTable tableName="waybill">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="partner_id" type="bigint">
+                <constraints referencedTableName="sender_recipient"
+                             referencedColumnNames="id"
+                               foreignKeyName="partner_id_fk" />
+            </column>
+            <column name="carrier_id" type="bigint">
+                <constraints referencedTableName="carrier"
+                             referencedColumnNames="id"
+                             foreignKeyName="carrier_id_fk"/>
+            </column>
+            <column name="registration_datetime" type="datetime"/>
+            <column name="issue_date" type="datetime"/>
+            <column name="check_date" type="datetime"/>
+            <column name="dispatcher_id" type="bigint">
+                <constraints referencedTableName="user"
+                             referencedColumnNames="id"
+                             foreignKeyName="dispatcher_id_fk"/>
+            </column>
+            <column name="manager_id" type="bigint">
+                <constraints referencedTableName="user"
+                             referencedColumnNames="id"
+                             foreignKeyName="manager_id_fk"/>
+            </column>
+            <column name="contoller_id" type="bigint">
+                <constraints referencedTableName="user"
+                             referencedColumnNames="id"
+                             foreignKeyName="controller_id_fk"/>
+            </column>
+            <column name="status" type="varchar(20)"/>
+            <column name="number" type="varchar(255)"/>
+            <column name="description" type="varchar(255)"/>
+            <column name="sum" type="int"/>
+            <column name="name_count" type="int"/>
+            <column name="type" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

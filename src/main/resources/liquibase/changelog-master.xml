@@ -1,25 +1,23 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
-                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
-                   http://www.liquibase.org/xml/ns/dbchangelog
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
     <preConditions>
         <runningAs username="root"/>
     </preConditions>
-    <changeSet id="1" author="Yauhen Malchanau">
-        <createTable tableName="goods">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <rollback>
-            <dropTable tableName="goods"/>
-        </rollback>
-    </changeSet>
+    <include file="classpath:liquibase/changelog/changelog-client.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-user.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-role.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-user_role.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-sender_recipient.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-carrier.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-waybill.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-goods.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-goods_waybill.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-write_off.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-write_off_goods.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-storage.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-cell.xml"/>
+    <include file="classpath:liquibase/changelog/changelog-driver.xml"/>
 </databaseChangeLog>
