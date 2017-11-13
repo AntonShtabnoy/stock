@@ -21,6 +21,8 @@
                              referencedColumnNames="id"/>
             </column>
         </createTable>
+    </changeSet>
+    <changeSet id="12.11.2017_20:07" author="bogdanshishkin1998@gmail.com">
         <addPrimaryKey
                 tableName="user_role"
                 columnNames="user_id, role_id"

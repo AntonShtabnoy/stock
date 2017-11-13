@@ -1,4 +1,4 @@
-package com.itechart.javalab.web.controllers;
+package com.itechart.javalab.web.controller;
 
 /**
  * Created by Yauhen Malchanau on 10.11.2017.

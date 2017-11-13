@@ -17,7 +17,7 @@
             <column name="cost" type="int"/>
             <column name="weight" type="double"/>
             <column name="status" type="varchar(20)"/>
-            <column name="placement_datetime" type="timestamp"/>
+            <column name="placement_datetime" type="datetime"/>
             <column name="count" type="int"/>
         </createTable>
     </changeSet>

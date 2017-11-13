@@ -13,7 +13,7 @@
             </column>
             <column name="date" type="date"/>
             <column name="reason" type="varchar(255)"/>
-            <column name="action" type="varchar(30)"/>
+            <column name="action" type="varchar(255)"/>
             <column name="controller_id" type="bigint">
                 <constraints foreignKeyName="controller_user_id_fk" referencedTableName="user" referencedColumnNames="id"/>
             </column>
