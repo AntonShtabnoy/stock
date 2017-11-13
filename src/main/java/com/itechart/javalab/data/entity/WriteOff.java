@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -36,5 +37,5 @@ public class WriteOff {
     @JoinColumn(name = "responsible_carrier_id")
     private Carrier responsibleCarrier;
     @OneToMany(mappedBy = "goods", fetch = FetchType.LAZY)
-    private Set<WriteOffGoods> writeOffGoodsCountsAndInfo;
+    private Set<WriteOffGoods> writeOffGoodsCountsAndInfo = new HashSet<>();
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -36,7 +37,7 @@ public class Goods {
     @Column
     private Integer count;
     @OneToMany(mappedBy = "goods", fetch = FetchType.LAZY)
-    private Set<GoodsWaybill> waybillGoodsCounts;
+    private Set<GoodsWaybill> waybillGoodsCounts = new HashSet<>();
     @OneToMany(mappedBy = "goods", fetch = FetchType.LAZY)
-    private Set<WriteOffGoods> writeOffGoodsCountsAndInfo;
+    private Set<WriteOffGoods> writeOffGoodsCountsAndInfo = new HashSet<>();
 }
