@@ -1,5 +1,6 @@
 package com.itechart.javalab.data.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 @Table
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Goods {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

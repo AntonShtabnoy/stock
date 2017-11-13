@@ -1,5 +1,6 @@
 package com.itechart.javalab.data.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Table
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class WriteOffGoods {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goods_id")

@@ -1,5 +1,6 @@
 package com.itechart.javalab.data.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.sql.Date;
 @Table
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class WriteOff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
