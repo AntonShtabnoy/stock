@@ -40,12 +40,12 @@
                              referencedColumnNames="id"
                              foreignKeyName="controller_id_fk"/>
             </column>
-            <column name="status" type="varchar(1)"/>
-            <column name="number" type="varchar(20)"/>
+            <column name="status" type="varchar(20)"/>
+            <column name="number" type="varchar(255)"/>
             <column name="description" type="varchar(255)"/>
             <column name="sum" type="int"/>
             <column name="name_count" type="int"/>
-            <column name="type" type="varchar(1)"/>
+            <column name="type" type="varchar(20)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

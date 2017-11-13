@@ -1,7 +1,14 @@
 package com.itechart.javalab.dao;
 
+
 /**
  * Created by Yauhen Malchanau on 10.11.2017.
  */
-public interface GenericDao {
+public interface GenericDao<T> {
+
+    /**
+     * Method save entity in database
+     * @param entity object
+     */
+    void save(T entity);
 }
