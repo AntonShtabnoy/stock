@@ -17,5 +17,8 @@
             <column name="start_date" type="date"/>
             <column name="finish_date" type="date"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="client"/>
+        </rollback>
     </changeSet>
 </databaseChangeLog>
