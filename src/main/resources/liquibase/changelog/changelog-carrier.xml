@@ -15,6 +15,10 @@
             <column name="type" type="varchar(10)"/>
             <column name="description" type="varchar(255)"/>
             <column name="name" type="varchar(255)"/>
+            <column name="update_time" type="timestamp"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="carrier" />
+        </rollback>
     </changeSet>
 </databaseChangeLog>

@@ -43,4 +43,7 @@ public class Client {
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     private Set<Storage> storageSet = new HashSet<>();
 
+    @Embedded
+    private UpdateInfo updateInfo;
+
 }

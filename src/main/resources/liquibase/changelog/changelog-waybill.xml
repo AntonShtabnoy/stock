@@ -46,6 +46,10 @@
             <column name="sum" type="int"/>
             <column name="name_count" type="int"/>
             <column name="type" type="varchar(20)"/>
+            <column name="update_time" type="timestamp"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="waybill" />
+        </rollback>
     </changeSet>
 </databaseChangeLog>
