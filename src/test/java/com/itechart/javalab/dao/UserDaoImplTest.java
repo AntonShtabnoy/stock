@@ -1,5 +1,8 @@
 package com.itechart.javalab.dao;
 
+import com.itechart.javalab.data.entity.FullName;
+import lombok.Data;
+import com.itechart.javalab.data.entity.Address;
 import com.itechart.javalab.data.entity.Client;
 import com.itechart.javalab.data.entity.User;
 import org.junit.Test;
@@ -27,15 +30,19 @@ public class UserDaoImplTest {
     @Test
     public void shouldSaveClient() throws ParseException {
         User user = new User();
-        Client client = new Client();
-        client.setId(1L);
-        user.setClient(client);
-        //Не устанавливаются имя и фамилия
-        user.setFirstName("Denis");
-        user.setLastName("Petrovich");
+        FullName name = new FullName();
+        user.setName(name);
+        user.getName().setFirstName("Vasiliy");
+        user.getName().setLastName("Denisovich");
+
+        Address address = new Address();
+        address.setCountry("Belarus");
+        address.setCity("Minsk");
+        address.setStreet("Karbisheva");
+        user.setAddress(address);
 
         SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-        user.setDateOfBirth(format.parse("01.08.1967"));
+        user.setBirthday(format.parse("01.08.1967"));
 
         userDaoImpl.save(user);
     }

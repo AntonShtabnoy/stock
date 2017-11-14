@@ -32,5 +32,8 @@
             <column name="flat_number" type="varchar(255)"/>
             <column name="is_deleted" type="bit"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="user"/>
+        </rollback>
     </changeSet>
 </databaseChangeLog>

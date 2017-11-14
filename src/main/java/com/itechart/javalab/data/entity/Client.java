@@ -10,9 +10,11 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "client")
 @Data
 @NoArgsConstructor
 public class Client {
@@ -27,12 +29,18 @@ public class Client {
     @Column
     private String status;
 
-    @Column
+    @Column(name = "start_date")
     @Temporal(TemporalType.DATE)
     private Date startDate;
 
-    @Column
+    @Column(name = "finish_date")
     @Temporal(TemporalType.DATE)
     private Date finishDate;
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
+    private Set<User> users = new HashSet<>();
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
+    private Set<Storage> storageSet = new HashSet<>();
 
 }

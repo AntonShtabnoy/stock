@@ -12,7 +12,7 @@ import java.util.Set;
     Date/time: 14.11.2017 1:23
 */
 @Entity
-@Table
+@Table(name = "role")
 @Data
 @NoArgsConstructor
 public class Role {
@@ -24,7 +24,7 @@ public class Role {
     @Column
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "role")
     private Set<User> users = new HashSet<>();
 
 }
