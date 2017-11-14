@@ -27,15 +27,15 @@ public class WriteOff {
     private String reason;
     @Column
     private String action;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "controller_id")
-//    private User controller;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "responsible_user_id")
-//    private User responsibleUser;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "responsible_carrier_id")
-//    private Carrier responsibleCarrier;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "controller_id")
+    private User controller;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "responsible_user_id")
+    private User responsibleUser;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "responsible_carrier_id")
+    private Carrier responsibleCarrier;
     @OneToMany(mappedBy = "goods", fetch = FetchType.LAZY)
     private Set<WriteOffGoods> writeOffGoodsCountsAndInfo = new HashSet<>();
 }
