@@ -19,9 +19,9 @@ public class Storage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_id", nullable = false)
-    private Client client;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "client_id", nullable = false)
+//    private Client client;
 
     @Column
     private String info;
@@ -29,7 +29,7 @@ public class Storage {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "cell" , fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "storage" , fetch = FetchType.LAZY)
     private Set<Cell> cells = new HashSet<>();
 
 

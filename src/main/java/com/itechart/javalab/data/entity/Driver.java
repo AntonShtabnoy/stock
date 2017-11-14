@@ -34,9 +34,9 @@ public class Driver {
     @Column
     private String countryCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "carrier_id", nullable = false)
-    private Carrier carrier;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "carrier_id", nullable = false)
+//    private Carrier carrier;
 
 
 

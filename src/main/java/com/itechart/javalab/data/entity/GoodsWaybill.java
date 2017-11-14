@@ -18,9 +18,9 @@ public class GoodsWaybill {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goods_id")
     private Goods goods;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "waybill_id")
-    private Waybill waybill;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "waybill_id")
+//    private Waybill waybill;
     @Column
     private Integer count;
 }
