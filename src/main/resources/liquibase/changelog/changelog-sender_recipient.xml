@@ -13,6 +13,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)"/>
+            <column name="update_time" type="timestamp"/>
         </createTable>
         <rollback>
             <dropTable tableName="sender_recipient" />

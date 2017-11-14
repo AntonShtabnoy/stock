@@ -32,7 +32,7 @@ public class WayBill {
     private Carrier carrier;
 
     @Column(name = "registration_datetime", columnDefinition = "DATETIME")
-    @Temporal(TemporalType.DATE.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp registrationDatetime;
 
     @Column(name = "issue_date")
