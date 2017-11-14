@@ -14,5 +14,8 @@
             </column>
             <column name="name" type="varchar(255)"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="sender_recipient" />
+        </rollback>
     </changeSet>
 </databaseChangeLog>

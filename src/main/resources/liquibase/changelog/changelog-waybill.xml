@@ -47,5 +47,8 @@
             <column name="name_count" type="int"/>
             <column name="type" type="varchar(20)"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="waybill" />
+        </rollback>
     </changeSet>
 </databaseChangeLog>
