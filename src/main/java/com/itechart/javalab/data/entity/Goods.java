@@ -15,7 +15,6 @@ import java.util.Set;
 @Table
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Goods {
 
     @Id
