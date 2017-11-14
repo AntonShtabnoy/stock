@@ -1,9 +1,5 @@
 package com.itechart.javalab.dao;
 
-import com.itechart.javalab.data.entity.FullName;
-import lombok.Data;
-import com.itechart.javalab.data.entity.Address;
-import com.itechart.javalab.data.entity.Client;
 import com.itechart.javalab.data.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.sql.Date;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
