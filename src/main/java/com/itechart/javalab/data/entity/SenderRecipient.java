@@ -19,6 +19,6 @@ public class SenderRecipient {
     @Column
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "sender_recipient", fetch = FetchType.LAZY)
     private Set<WayBill> wayBills = new HashSet<>();
 }
