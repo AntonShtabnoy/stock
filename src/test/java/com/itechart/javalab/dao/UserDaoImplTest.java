@@ -1,5 +1,7 @@
 package com.itechart.javalab.dao;
 
+import com.itechart.javalab.data.entity.Address;
+import com.itechart.javalab.data.entity.FullName;
 import com.itechart.javalab.data.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;

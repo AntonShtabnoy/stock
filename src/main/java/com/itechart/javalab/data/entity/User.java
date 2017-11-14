@@ -16,9 +16,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table
 @NoArgsConstructor
-@Data
+@Daa
 public class User implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -54,14 +54,11 @@ public class User implements Serializable{
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean isDeleted;
 
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "user_role",
             joinColumns = { @JoinColumn(name = "user_id") },
             inverseJoinColumns = { @JoinColumn(name = "role_id") }
     )
-    Set<Role> role = new HashSet<>();
-
-    @Embedded
-    private UpdateInfo updateInfo;
+    Set<Role> roles = new HashSet<>();
 }
