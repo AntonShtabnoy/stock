@@ -1,4 +1,4 @@
-package com.itechart.javalab.entities;
+package com.itechart.javalab.data.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -23,11 +25,11 @@ public class WayBill {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
-    private Sender_Recipient partnerId;
+    private SenderRecipient partner;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
-    private Carrier carrierId;
+    private Carrier carrier;
 
     @Column
     private Timestamp registrationDatetime;
@@ -38,17 +40,17 @@ public class WayBill {
     @Column
     private Timestamp checkDate;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id")
-//    private User dispatcherId;
-//
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id")
-//    private User managerId;
-//
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id")
-//    private User controllerId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private User dispatcher;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private User manager;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private User controller;
 
     @Column
     private String status;
@@ -67,4 +69,7 @@ public class WayBill {
 
     @Column
     private String type;
+
+    @OneToMany(mappedBy = "waybill", fetch = FetchType.LAZY)
+    private Set<GoodsWaybill> waybillGoodsCounts = new HashSet<>();
 }

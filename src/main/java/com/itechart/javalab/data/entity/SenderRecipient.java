@@ -1,8 +1,7 @@
-package com.itechart.javalab.entities;
+package com.itechart.javalab.data.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 
@@ -10,17 +9,10 @@ import javax.persistence.Entity;
 @Table
 @Data
 @NoArgsConstructor
-public class Carrier {
-
+public class SenderRecipient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column
-    private String type;
-
-    @Column
-    private String description;
 
     @Column
     private String name;
