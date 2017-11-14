@@ -10,13 +10,14 @@ import javax.persistence.Embeddable;
 @Data
 @NoArgsConstructor
 public class Address {
-    @Column(name = "country")
+
+    @Column
     private String country;
 
-    @Column(name = "city")
+    @Column
     private String city;
 
-    @Column(name = "street")
+    @Column
     private String street;
 
     @Column(name = "house_number")

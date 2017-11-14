@@ -18,13 +18,13 @@ public class Cell {
     @JoinColumn(name = "storage_id", nullable = false)
     private Storage storage;
 
-    @Column(name = "type")
+    @Column
     private String type;
 
-    @Column(name = "status")
+    @Column
     private String status;
 
-    @Column(name = "number")
+    @Column
     private String number;
 
     @ManyToOne(fetch = FetchType.LAZY)

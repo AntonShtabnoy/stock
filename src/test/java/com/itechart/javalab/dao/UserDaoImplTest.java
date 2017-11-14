@@ -27,9 +27,9 @@ public class UserDaoImplTest {
     public void shouldSaveClient() throws ParseException {
         User user = new User();
         FullName name = new FullName();
-        user.setName(name);
-        user.getName().setFirstName("Vasiliy");
-        user.getName().setLastName("Denisovich");
+        user.setFullName(name);
+        user.getFullName().setFirstName("Vasiliy");
+        user.getFullName().setLastName("Denisovich");
 
         Address address = new Address();
         address.setCountry("Belarus");

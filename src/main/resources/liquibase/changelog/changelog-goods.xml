@@ -19,6 +19,14 @@
             <column name="status" type="varchar(20)"/>
             <column name="placement_datetime" type="datetime"/>
             <column name="count" type="int"/>
+            <column name="updated_by" type="bigint">
+                <constraints foreignKeyName="goods_updated_by_user_id_fk" referencedTableName="user"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="update_time" type="timestamp"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="goods"/>
+        </rollback>
     </changeSet>
 </databaseChangeLog>

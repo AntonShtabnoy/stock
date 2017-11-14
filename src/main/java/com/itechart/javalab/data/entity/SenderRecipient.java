@@ -16,12 +16,12 @@ public class SenderRecipient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @OneToMany(mappedBy = "sender_recipient", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "partner", fetch = FetchType.LAZY)
     private Set<Waybill> waybills = new HashSet<>();
 
-//    @Embedded
-//    private UpdateInfo updateInfo;
+    @Embedded
+    private UpdateInfo updateInfo;
 }

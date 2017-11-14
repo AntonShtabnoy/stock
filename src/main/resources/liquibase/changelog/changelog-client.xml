@@ -16,6 +16,11 @@
             <column name="status" type="varchar(60)"/>
             <column name="start_date" type="date"/>
             <column name="finish_date" type="date"/>
+            <!--<column name="updated_by" type="bigint">-->
+                <!--<constraints foreignKeyName="client_updated_by_user_id_fk" referencedTableName="user"-->
+                             <!--referencedColumnNames="id"/>-->
+            <!--</column>-->
+            <column name="update_time" type="timestamp"/>
         </createTable>
         <rollback>
             <dropTable tableName="client"/>

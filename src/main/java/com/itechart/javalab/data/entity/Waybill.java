@@ -14,7 +14,7 @@ import java.util.Set;
  * Created by Ilya Pavlovsky 13.11.2017
  */
 @Entity
-@Table(name = "waybill")
+@Table
 @Data
 @NoArgsConstructor
 public class Waybill {
@@ -31,16 +31,13 @@ public class Waybill {
     @JoinColumn(name = "carrier_id")
     private Carrier carrier;
 
-    @Column(name = "registration_datetime", columnDefinition = "DATETIME")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "registration_datetime", columnDefinition = "datetime")
     private Timestamp registrationDatetime;
 
-    @Column(name = "issue_date", columnDefinition = "DATETIME")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "issue_date", columnDefinition = "datetime")
     private Timestamp issueDate;
 
-    @Column(name = "check_date", columnDefinition = "DATETIME")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "check_date", columnDefinition = "datetime")
     private Timestamp checkDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -55,27 +52,27 @@ public class Waybill {
     @JoinColumn(name = "controller_id")
     private User controller;
 
-    @Column(name = "status")
+    @Column
     private String status;
 
-    @Column(name = "number")
+    @Column
     private String number;
 
-    @Column(name = "description")
+    @Column
     private String description;
 
-    @Column(name = "sum")
+    @Column
     private Integer sum;
 
     @Column(name = "name_count")
     private Integer nameCount;
 
-    @Column(name = "type")
+    @Column
     private String type;
 
     @OneToMany(mappedBy = "waybill", fetch = FetchType.LAZY)
     private Set<GoodsWaybill> waybillGoodsCounts = new HashSet<>();
 
-//    @Embedded
-//    private UpdateInfo updateInfo;
+    @Embedded
+    private UpdateInfo updateInfo;
 }

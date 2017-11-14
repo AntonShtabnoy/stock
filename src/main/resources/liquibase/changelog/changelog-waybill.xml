@@ -35,7 +35,7 @@
                              referencedColumnNames="id"
                              foreignKeyName="manager_id_fk"/>
             </column>
-            <column name="contoller_id" type="bigint">
+            <column name="controller_id" type="bigint">
                 <constraints referencedTableName="user"
                              referencedColumnNames="id"
                              foreignKeyName="controller_id_fk"/>
@@ -46,6 +46,10 @@
             <column name="sum" type="int"/>
             <column name="name_count" type="int"/>
             <column name="type" type="varchar(20)"/>
+            <column name="updated_by" type="bigint">
+                <constraints foreignKeyName="waybill_updated_by_user_id_fk" referencedTableName="user"
+                             referencedColumnNames="id"/>
+            </column>
             <column name="update_time" type="timestamp"/>
         </createTable>
         <rollback>

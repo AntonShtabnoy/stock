@@ -13,6 +13,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 public class Storage {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,7 +22,7 @@ public class Storage {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @Column(name = "info")
+    @Column
     private String info;
 
     @Embedded
@@ -32,5 +33,4 @@ public class Storage {
 
     @Embedded
     private UpdateInfo updateInfo;
-
 }

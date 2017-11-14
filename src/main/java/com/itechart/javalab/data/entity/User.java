@@ -31,7 +31,7 @@ public class User implements Serializable{
     private String email;
 
     @Embedded
-    private FullName name;
+    private FullName fullName;
 
     @Column(name = "dob")
     @Temporal(TemporalType.DATE)
@@ -51,8 +51,7 @@ public class User implements Serializable{
     private Address address;
 
     @Column(name = "is_deleted")
-    @Type(type = "org.hibernate.type.NumericBooleanType")
-    private Boolean isDeleted;
+    private Integer isDeleted;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -60,5 +59,17 @@ public class User implements Serializable{
             joinColumns = { @JoinColumn(name = "user_id") },
             inverseJoinColumns = { @JoinColumn(name = "role_id") }
     )
-    Set<Role> roles = new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "dispatcher", fetch = FetchType.LAZY)
+    private Set<Waybill> dispatcherWaybills = new HashSet<>();
+
+    @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY)
+    private Set<Waybill> managerWaybills = new HashSet<>();
+
+    @OneToMany(mappedBy = "controller", fetch = FetchType.LAZY)
+    private Set<Waybill> controllerWaybills = new HashSet<>();
+
+    @Embedded
+    private UpdateInfo updateInfo;
 }
