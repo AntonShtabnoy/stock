@@ -18,7 +18,7 @@ import java.util.Set;
 @Entity
 @Table
 @NoArgsConstructor
-@Daa
+@Data
 public class User implements Serializable{
 
     private static final long serialVersionUID = 1L;
