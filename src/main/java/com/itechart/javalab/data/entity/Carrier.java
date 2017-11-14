@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "carrier")
+@Table
 @Data
 @NoArgsConstructor
 public class Carrier {
@@ -18,13 +18,13 @@ public class Carrier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "type")
+    @Column
     private String type;
 
-    @Column(name = "description")
+    @Column
     private String description;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
     @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)
@@ -33,9 +33,9 @@ public class Carrier {
     @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)
     private Set<Driver> drivers = new HashSet<>();
 
-    @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "responsibleCarrier", fetch = FetchType.LAZY)
     private Set<WriteOff> writeOffs = new HashSet<>();
 
-//    @Embedded
-//    private UpdateInfo updateInfo;
+    @Embedded
+    private UpdateInfo updateInfo;
 }

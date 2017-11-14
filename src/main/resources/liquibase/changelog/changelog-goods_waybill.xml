@@ -16,8 +16,15 @@
             </column>
             <column name="count" type="int"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="goods_waybill"/>
+        </rollback>
     </changeSet>
     <changeSet id="12.11.2017_23:18" author="yauhenmalchanau@gmail.com">
         <addPrimaryKey tableName="goods_waybill" columnNames="goods_id, waybill_id" constraintName="goods_waybill_pk"/>
+        <rollback>
+            <dropPrimaryKey tableName="goods_waybill"
+                            constraintName="goods_waybill_pk"/>
+        </rollback>
     </changeSet>
 </databaseChangeLog>

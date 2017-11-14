@@ -14,5 +14,8 @@
             </column>
             <column name="name" type="varchar(60)"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="role"/>
+        </rollback>
     </changeSet>
 </databaseChangeLog>

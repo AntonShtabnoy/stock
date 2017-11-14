@@ -16,11 +16,12 @@
             <column name="middle_name" type="varchar(255)"/>
             <column name="passport_number" type="varchar(255)"/>
             <column name="passport_issue" type="varchar(255)"/>
+            <column name="country_code" type="varchar(255)"/>
             <column name="carrier_id" type="bigint">
                 <constraints foreignKeyName="driver_carrier_id_fk" referencedTableName="carrier" referencedColumnNames="id"/>
             </column>
             <column name="updated_by" type="bigint">
-                <constraints foreignKeyName="updated_by_user_id_fk" referencedTableName="user"
+                <constraints foreignKeyName="driver_updated_by_user_id_fk" referencedTableName="user"
                              referencedColumnNames="id"/>
             </column>
             <column name="update_time" type="timestamp"/>

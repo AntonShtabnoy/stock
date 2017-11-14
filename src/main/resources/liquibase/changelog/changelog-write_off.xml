@@ -23,6 +23,14 @@
             <column name="responsible_carrier_id" type="bigint">
                 <constraints foreignKeyName="responsible_carrier_id_fk" referencedTableName="carrier" referencedColumnNames="id"/>
             </column>
+            <column name="updated_by" type="bigint">
+                <constraints foreignKeyName="write_off_updated_by_user_id_fk" referencedTableName="user"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="update_time" type="timestamp"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="write_off"/>
+        </rollback>
     </changeSet>
 </databaseChangeLog>

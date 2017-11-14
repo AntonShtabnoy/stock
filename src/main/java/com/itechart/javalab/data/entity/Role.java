@@ -12,7 +12,7 @@ import java.util.Set;
     Date/time: 14.11.2017 1:23
 */
 @Entity
-@Table(name = "role")
+@Table
 @Data
 @NoArgsConstructor
 public class Role {
