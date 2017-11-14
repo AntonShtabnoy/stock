@@ -21,4 +21,7 @@ public class SenderRecipient {
 
     @OneToMany(mappedBy = "sender_recipient", fetch = FetchType.LAZY)
     private Set<WayBill> wayBills = new HashSet<>();
+
+//    @Embedded
+//    private UpdateInfo updateInfo;
 }

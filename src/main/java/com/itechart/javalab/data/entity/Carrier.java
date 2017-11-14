@@ -35,4 +35,7 @@ public class Carrier {
 
     @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)
     private Set<WriteOff> writeOffs = new HashSet<>();
+
+//    @Embedded
+//    private UpdateInfo updateInfo;
 }

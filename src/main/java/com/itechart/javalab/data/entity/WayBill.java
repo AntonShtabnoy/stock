@@ -73,4 +73,7 @@ public class WayBill {
 
     @OneToMany(mappedBy = "waybill", fetch = FetchType.LAZY)
     private Set<GoodsWaybill> waybillGoodsCounts = new HashSet<>();
+
+//    @Embedded
+//    private UpdateInfo updateInfo;
 }
