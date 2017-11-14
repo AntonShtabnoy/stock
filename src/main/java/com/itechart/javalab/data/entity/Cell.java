@@ -1,6 +1,5 @@
 package com.itechart.javalab.data.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +9,6 @@ import javax.persistence.*;
 @Table
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Cell {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,20 +18,23 @@ public class Cell {
     @JoinColumn(name = "storage_id", nullable = false)
     private Storage storage;
 
-    @Column
+    @Column(name = "type")
     private String type;
 
-    @Column
+    @Column(name = "status")
     private String status;
 
-    @Column
+    @Column(name = "number")
     private String number;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goods_id", nullable = false)
     private Goods goods;
 
-    @Column
-    private Integer count;
+    @Column(name = "goods_count")
+    private Integer goodsCount;
+
+    @Embedded
+    private UpdateInfo updateInfo;
 
 }

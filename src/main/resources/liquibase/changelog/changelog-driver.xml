@@ -19,6 +19,14 @@
             <column name="carrier_id" type="bigint">
                 <constraints foreignKeyName="driver_carrier_id_fk" referencedTableName="carrier" referencedColumnNames="id"/>
             </column>
+            <column name="updated_by" type="bigint">
+                <constraints foreignKeyName="updated_by_user_id_fk" referencedTableName="user"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="update_time" type="timestamp"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="driver"/>
+        </rollback>
     </changeSet>
 </databaseChangeLog>

@@ -1,7 +1,6 @@
 package com.itechart.javalab.data.entity;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +12,6 @@ import java.util.Set;
 @Table
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Storage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +21,7 @@ public class Storage {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @Column
+    @Column(name = "info")
     private String info;
 
     @Embedded
@@ -32,6 +30,7 @@ public class Storage {
     @OneToMany(mappedBy = "storage" , fetch = FetchType.LAZY)
     private Set<Cell> cells = new HashSet<>();
 
-
+    @Embedded
+    private UpdateInfo updateInfo;
 
 }
