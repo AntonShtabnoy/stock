@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.persistence.Entity;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
@@ -16,4 +18,7 @@ public class SenderRecipient {
 
     @Column
     private String name;
+
+    @OneToMany
+    private Set<WayBill> wayBills = new HashSet<>();
 }

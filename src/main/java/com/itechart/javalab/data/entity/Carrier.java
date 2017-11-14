@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
@@ -24,4 +26,13 @@ public class Carrier {
 
     @Column
     private String name;
+
+    @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)
+    private Set<WayBill> wayBills = new HashSet<>();
+
+    @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)
+    private Set<Driver> drivers = new HashSet<>();
+
+    @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)
+    private Set<WriteOff> writeOffs = new HashSet<>();
 }
