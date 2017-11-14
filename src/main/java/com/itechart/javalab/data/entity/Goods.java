@@ -40,4 +40,6 @@ public class Goods {
     private Set<GoodsWaybill> waybillGoodsCounts = new HashSet<>();
     @OneToMany(mappedBy = "goods", fetch = FetchType.LAZY)
     private Set<WriteOffGoods> writeOffGoodsCountsAndInfo = new HashSet<>();
+    @OneToMany(mappedBy = "goods", fetch = FetchType.LAZY)
+    private Set<Cell> cells = new HashSet<>();
 }
