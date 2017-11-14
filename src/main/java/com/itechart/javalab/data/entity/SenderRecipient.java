@@ -16,7 +16,7 @@ public class SenderRecipient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
     @OneToMany(mappedBy = "sender_recipient", fetch = FetchType.LAZY)

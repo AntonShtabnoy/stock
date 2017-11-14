@@ -18,13 +18,13 @@ public class Carrier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "type")
     private String type;
 
-    @Column
+    @Column(name = "description")
     private String description;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
     @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)

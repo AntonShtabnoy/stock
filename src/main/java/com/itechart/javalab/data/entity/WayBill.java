@@ -24,50 +24,51 @@ public class WayBill {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "partner_id")
     private SenderRecipient partner;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "carrier_id")
     private Carrier carrier;
 
-    @Column
+    @Column(name = "registration_datetime", columnDefinition = "DATETIME")
+    @Temporal(TemporalType.DATE.TIMESTAMP)
     private Timestamp registrationDatetime;
 
-    @Column
+    @Column(name = "issue_date")
     private Timestamp issueDate;
 
-    @Column
+    @Column(name = "check_date")
     private Timestamp checkDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "dispatcher_id")
     private User dispatcher;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "manager_id")
     private User manager;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "controller_id")
     private User controller;
 
-    @Column
+    @Column(name = "status")
     private String status;
 
-    @Column
+    @Column(name = "number")
     private String number;
 
-    @Column
+    @Column(name = "description")
     private String description;
 
-    @Column
+    @Column(name = "sum")
     private Integer sum;
 
-    @Column
+    @Column(name = "name_count")
     private Integer nameCount;
 
-    @Column
+    @Column(name = "type")
     private String type;
 
     @OneToMany(mappedBy = "waybill", fetch = FetchType.LAZY)
