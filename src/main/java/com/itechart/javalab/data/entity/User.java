@@ -54,7 +54,7 @@ public class User implements Serializable{
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean isDeleted;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany()
     @JoinTable(
             name = "user_role",
             joinColumns = { @JoinColumn(name = "user_id") },
