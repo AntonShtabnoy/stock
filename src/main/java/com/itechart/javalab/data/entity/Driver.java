@@ -15,7 +15,7 @@ public class Driver {
     private Long id;
 
     @Embedded
-    private FullName fullname;
+    private FullName fullName;
 
     @Column(name = "passport_number")
     private String passportNumber;
