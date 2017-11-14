@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
@@ -26,6 +28,10 @@ public class Storage {
 
     @Embedded
     private Address address;
+
+    @OneToMany(mappedBy = "cell" , fetch = FetchType.LAZY)
+    private Set<Cell> cells = new HashSet<>();
+
 
 
 }
