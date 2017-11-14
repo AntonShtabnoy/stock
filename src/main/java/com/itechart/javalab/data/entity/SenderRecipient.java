@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "sender_recipient")
 @Data
 @NoArgsConstructor
 public class SenderRecipient {
@@ -20,7 +20,7 @@ public class SenderRecipient {
     private String name;
 
     @OneToMany(mappedBy = "sender_recipient", fetch = FetchType.LAZY)
-    private Set<WayBill> wayBills = new HashSet<>();
+    private Set<Waybill> waybills = new HashSet<>();
 
 //    @Embedded
 //    private UpdateInfo updateInfo;

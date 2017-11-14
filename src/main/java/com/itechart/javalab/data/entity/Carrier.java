@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "carrier")
 @Data
 @NoArgsConstructor
 public class Carrier {
@@ -28,7 +28,7 @@ public class Carrier {
     private String name;
 
     @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)
-    private Set<WayBill> wayBills = new HashSet<>();
+    private Set<Waybill> waybills = new HashSet<>();
 
     @OneToMany(mappedBy = "carrier", fetch = FetchType.LAZY)
     private Set<Driver> drivers = new HashSet<>();

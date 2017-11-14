@@ -14,10 +14,10 @@ import java.util.Set;
  * Created by Ilya Pavlovsky 13.11.2017
  */
 @Entity
-@Table
+@Table(name = "waybill")
 @Data
 @NoArgsConstructor
-public class WayBill {
+public class Waybill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,10 +35,12 @@ public class WayBill {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp registrationDatetime;
 
-    @Column(name = "issue_date")
+    @Column(name = "issue_date", columnDefinition = "DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp issueDate;
 
-    @Column(name = "check_date")
+    @Column(name = "check_date", columnDefinition = "DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp checkDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
