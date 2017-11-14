@@ -1,6 +1,5 @@
 package com.itechart.javalab.data.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,34 +9,28 @@ import javax.persistence.*;
 @Table
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String firstName;
+    @Embedded
+    private FullName fullname;
 
-    @Column
-    private String lastName;
-
-    @Column
-    private String middleName;
-
-    @Column
+    @Column(name = "passport_number")
     private String passportNumber;
 
-    @Column
+    @Column(name = "passport_issue")
     private String passportIssue;
 
-    @Column
+    @Column(name = "country_code")
     private String countryCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carrier_id", nullable = false)
     private Carrier carrier;
 
-
+    @Embedded
+    private UpdateInfo updateInfo;
 
 }
