@@ -6,9 +6,11 @@ package com.itechart.javalab.dao;
  */
 public interface GenericDao<T> {
 
-    /**
-     * Method save entity in database
-     * @param entity object
-     */
     void save(T entity);
+
+    T findById(long id);
+
+    void update(T entity);
+
+    void delete(long id);
 }

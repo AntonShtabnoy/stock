@@ -1,7 +1,5 @@
 package com.itechart.javalab.config;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,10 +7,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 import java.util.Properties;
 
 
@@ -22,7 +26,6 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySource({"classpath:application.properties"})
-@ComponentScan({"com.itechart.javalab.data.entity"})
 public class DaoConfiguration {
 
     private final Environment env;
@@ -32,18 +35,21 @@ public class DaoConfiguration {
         this.env = env;
     }
 
+
     @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(restDataSource());
-        sessionFactory.setPackagesToScan(new String[]{"com.itechart.javalab.data.entity"});
-        sessionFactory.setHibernateProperties(hibernateProperties());
-        return sessionFactory;
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource());
+        em.setPackagesToScan(new String[]{"com.itechart.javalab.data.entity"});
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaProperties(jpaProperties());
+        return em;
     }
 
     @Bean
-    public DataSource restDataSource() {
-        DataSource dataSource = new DataSource();
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
         dataSource.setUrl(env.getProperty("spring.datasource.url"));
         dataSource.setUsername(env.getProperty("spring.datasource.username"));
@@ -52,13 +58,10 @@ public class DaoConfiguration {
     }
 
     @Bean
-    @Autowired
-    public HibernateTransactionManager transactionManager(
-            SessionFactory sessionFactory) {
-        HibernateTransactionManager txManager
-                = new HibernateTransactionManager();
-        txManager.setSessionFactory(sessionFactory);
-        return txManager;
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf);
+        return transactionManager;
     }
 
     @Bean
@@ -66,15 +69,13 @@ public class DaoConfiguration {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-    private Properties hibernateProperties() {
+    private Properties jpaProperties() {
         return new Properties() {
             {
                 setProperty("hibernate.hbm2ddl.auto",
                         env.getProperty("spring.jpa.hibernate.ddl-auto"));
                 setProperty("hibernate.dialect",
                         env.getProperty("spring.jpa.properties.hibernate.dialect"));
-                setProperty("hibernate.globally_quoted_identifiers",
-                        "true");
             }
         };
     }
