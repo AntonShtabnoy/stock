@@ -50,7 +50,7 @@ public class User implements Serializable{
     @Embedded
     private Address address;
 
-    @Column(name = "is_deleted")
+    @Column(name = "is_deleted", columnDefinition="bit")
     private Integer isDeleted;
 
     @ManyToMany(fetch = FetchType.LAZY)
