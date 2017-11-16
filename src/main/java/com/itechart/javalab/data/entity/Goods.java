@@ -1,6 +1,6 @@
 package com.itechart.javalab.data.entity;
 
-import lombok.AllArgsConstructor;
+import com.itechart.javalab.annotations.SearchCriteria;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
@@ -19,11 +19,14 @@ public class Goods {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SearchCriteria
     private Long id;
 
+    @SearchCriteria
     @Column
     private String name;
 
+    @SearchCriteria
     @Column(name = "storage_method")
     private String storageMethod;
 
@@ -36,6 +39,7 @@ public class Goods {
     @Column
     private Double weight;
 
+    @SearchCriteria
     @Column
     private String status;
 
